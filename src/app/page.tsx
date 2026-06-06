@@ -38,7 +38,7 @@ export default function Home() {
     <main className="site" style={{ width: '100%', minHeight: '100vh', paddingBottom: '80px' }}>
       
       {/* 1. 상단 타이틀 및 부제목 구역 */}
-      <header className="site-header" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', padding: '80px 20px 40px 20px', width: '100%' }}>
+      <header className="site-header" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', padding: '80px 20px 30px 20px', width: '100%' }}>
         <div style={{ maxWidth: '800px', margin: '0 auto' }}>
           <h1 style={{ fontSize: '2.7rem', marginBottom: '40px', wordBreak: 'keep-all', fontWeight: 'bold', letterSpacing: '-0.5px' }}>
             보안 프로토콜 시연 시스템
@@ -53,9 +53,9 @@ export default function Home() {
         </div>
       </header>
 
-      {/* 👥 조원 이름 박스 + [🔥 미리캔버스 실제 링크 연동 완료] */}
-      <section style={{ maxWidth: '800px', margin: '10px auto 30px auto', padding: '0 20px', width: '100%' }}>
-        <div className="team-panel" style={{ padding: '24px', background: '#f8f9fa', borderRadius: '12px', border: '1px solid #e9ecef', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px' }}>
+      {/* [ 희미한 선 및 배경 제거] 투명하게 정돈된 조원 이름 & PPT 버튼 구역 */}
+      <section style={{ maxWidth: '800px', margin: '0 auto 40px auto', padding: '0 20px', width: '100%' }}>
+        <div className="team-panel" style={{ padding: '10px 24px', background: 'transparent', borderRadius: 0, border: 'none', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px' }}>
           
           {/* 조원 이름 레이아웃 */}
           <div style={{ display: 'flex', justifyContent: 'center', gap: '24px', flexWrap: 'wrap', fontSize: '14px', color: '#4a5568', fontWeight: '500', letterSpacing: '0.5px' }}>
@@ -66,7 +66,7 @@ export default function Home() {
             <span>김정서</span>
           </div>
 
-          {/* 📊 PPT 링크 버튼 (조장님이 주신 미리캔버스 주소 완벽 이식!) */}
+          {/* PPT 링크 버튼 */}
           <a 
             href="https://www.miricanvas.com/v2/ko/design2/5230c798-317a-4d8e-8fc0-6180a29f11cd" 
             target="_blank" 
@@ -86,7 +86,7 @@ export default function Home() {
               transition: 'all 0.2s'
             }}
           >
-            📋 프로젝트 발표 자료 (PPT) 확인하기 ↗
+             결과 보고서 확인하기 ↗
           </a>
 
         </div>
