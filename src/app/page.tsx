@@ -53,9 +53,11 @@ export default function Home() {
         </div>
       </header>
 
-      {/*  5명 이름 */}
+      {/* 👥 조원 이름 박스 + [🔥 미리캔버스 실제 링크 연동 완료] */}
       <section style={{ maxWidth: '800px', margin: '10px auto 30px auto', padding: '0 20px', width: '100%' }}>
-        <div className="team-panel" style={{ padding: '16px 24px', background: '#f8f9fa', borderRadius: '12px', border: '1px solid #e9ecef', textAlign: 'center' }}>
+        <div className="team-panel" style={{ padding: '24px', background: '#f8f9fa', borderRadius: '12px', border: '1px solid #e9ecef', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px' }}>
+          
+          {/* 조원 이름 레이아웃 */}
           <div style={{ display: 'flex', justifyContent: 'center', gap: '24px', flexWrap: 'wrap', fontSize: '14px', color: '#4a5568', fontWeight: '500', letterSpacing: '0.5px' }}>
             <span>박민지</span>
             <span>조민정</span>
@@ -63,6 +65,30 @@ export default function Home() {
             <span>유채원</span>
             <span>김정서</span>
           </div>
+
+          {/* 📊 PPT 링크 버튼 (조장님이 주신 미리캔버스 주소 완벽 이식!) */}
+          <a 
+            href="https://www.miricanvas.com/v2/ko/design2/5230c798-317a-4d8e-8fc0-6180a29f11cd" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            style={{ 
+              display: 'inline-flex', 
+              alignItems: 'center', 
+              gap: '8px',
+              padding: '10px 20px', 
+              backgroundColor: '#10b981', 
+              color: '#fff', 
+              borderRadius: '30px', 
+              fontSize: '13px', 
+              fontWeight: 'bold', 
+              textDecoration: 'none',
+              boxShadow: '0 2px 4px rgba(16, 185, 129, 0.2)',
+              transition: 'all 0.2s'
+            }}
+          >
+            📋 프로젝트 발표 자료 (PPT) 확인하기 ↗
+          </a>
+
         </div>
       </section>
 
@@ -73,13 +99,11 @@ export default function Home() {
           {modules.map((module) => (
             <article key={module.title} className="module-row" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%', padding: '24px', backgroundColor: '#fff', borderRadius: '12px', border: '1px solid #e2e8f0', boxShadow: '0 1px 3px rgba(0,0,0,0.05)' }}>
               
-              {/* 기능 소개 텍스트는 왼쪽 정렬 */}
               <div className="module-main" style={{ flex: 1, textAlign: 'left', paddingRight: '20px' }}>
                 <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', margin: 0, color: '#1a202c' }}>{module.title}</h3>
                 <p style={{ color: '#718096', marginTop: '6px', marginBottom: 0, fontSize: '0.95rem', lineHeight: '1.5' }}>{module.description}</p>
               </div>
 
-              {/* 화살표 버튼은 카드 오른쪽 끝 정렬 */}
               <div className="module-action">
                 {module.enabled ? (
                   <Link href={module.href} style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '40px', height: '40px', backgroundColor: '#3b82f6', color: '#fff', borderRadius: '8px', textDecoration: 'none', fontSize: '1.2rem', fontWeight: 'bold', transition: 'background 0.2s' }}>
