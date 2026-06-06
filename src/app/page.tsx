@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from 'next/link'
 
 const modules = [
   {
@@ -22,9 +22,9 @@ const modules = [
     title: '사용자 등록 / 인증서 발급',
     owner: '조민정',
     description: '사용자 공개키 등록 및 인증서 발급 기능을 연결할 예정입니다.',
-    href: '#',
-    status: '예정',
-    enabled: false,
+    href: '/steganography', // 1. 원래 '#' 이던 것을 우리가 만든 폴더 주소로 변경!
+    status: '완료', // 2. '예정'을 '완료'로 변경!
+    enabled: true, // 3. false를 true로 변경해서 버튼 활성화!
   },
   {
     title: '암호화 / 스테가노그래피',
@@ -43,7 +43,7 @@ const modules = [
     status: '완료', // 💡 완료 상태로 수정!
     enabled: true, // 💡 열기 활성화!
   },
-];
+]
 
 export default function Home() {
   return (
@@ -133,5 +133,5 @@ export default function Home() {
         </div>
       </section>
     </main>
-  );
+  )
 }
