@@ -150,16 +150,6 @@ export default function Home() {
 
 
 
-              <div className="module-meta">
-
-                <span>담당</span>
-
-                <strong>{module.owner}</strong>
-
-              </div>
-
-
-
               {module.enabled ? (
 
                 <Link className="text-link" href={module.href}>
