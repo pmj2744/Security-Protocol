@@ -375,16 +375,26 @@ export default function SteganographyPage() {
               </div>
             )}
 
-            {decryptedMessage && (
+{decryptedMessage && (
               <div style={{ marginTop: '12px', padding: '16px', backgroundColor: '#e8f5e9', border: '1px solid #10b981', borderRadius: '8px' }}>
                 <h3 style={{ fontSize: '14px', fontWeight: 'bold', color: '#155724', marginBottom: '4px' }}>🎉 [최종 복호화 대성공] 원본 메시지 확인:</h3>
                 <p style={{ fontSize: '16px', fontWeight: 'bold', color: '#1b5e20', margin: 0 }}>{decryptedMessage}</p>
 
+                {/* [시연 최종 완공] 글씨 크기 깨짐 없이 정돈된 다음 단계 MFA 하이라이트 링크 버튼 */}
                 <div style={{ textAlign: 'center', marginTop: '20px' }}>
                   <Link 
                     href="/identity-check" 
                     style={{ 
-                      display: 'inline-block', padding: '10px 24px', backgroundColor: '#2563eb', color: '#fff', borderRadius: '30px', fontSize: '14px', fontWeight: 'bold', textDecoration: 'none', boxShadow: '0 4px 6px rgba(37, 99, 235, 0.2)', transition: 'all 0.2s'
+                      display: 'inline-block', 
+                      padding: '10px 24px', 
+                      backgroundColor: '#2563eb', // 시원한 파란색
+                      color: '#fff', 
+                      borderRadius: '30px', 
+                      fontSize: '14px', 
+                      fontWeight: 'bold', 
+                      textDecoration: 'none',
+                      boxShadow: '0 4px 6px rgba(37, 99, 235, 0.2)',
+                      transition: 'all 0.2s'
                     }}
                   >
                     다음 단계: 수신자 신원 확인 및 다중 인증(MFA) 시연하기 ➔
@@ -392,6 +402,7 @@ export default function SteganographyPage() {
                 </div>
               </div>
             )}
+            
           </div>
         </div>
 
