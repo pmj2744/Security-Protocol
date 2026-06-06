@@ -160,21 +160,24 @@ export default function CertIssuePage() {
             >
               {result}
 
+              {/* 🎯 [시연 핵심 교정] 발급 완료 후 -> 전자서명 로그인으로 정상 워프하도록 링크 수정 */}
               <div style={{ marginTop: '12px', textAlign: 'center' }}>
                 <Link
-                  href="/identity-check"
+                  href="/signature-login"
                   style={{
                     display: 'inline-block',
-                    padding: '6px 16px',
+                    padding: '8px 20px',
                     backgroundColor: '#3b82f6',
                     color: '#fff',
                     borderRadius: '20px',
                     fontSize: '13px',
                     fontWeight: 'bold',
                     textDecoration: 'none',
+                    boxShadow: '0 2px 4px rgba(59, 130, 246, 0.2)',
+                    transition: 'all 0.2s'
                   }}
                 >
-                  다음 단계: 신원 확인 / MFA 진행하기 ➔
+                  다음 단계: 전자서명 로그인 진행하기 ➔
                 </Link>
               </div>
             </div>
