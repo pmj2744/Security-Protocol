@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react'
 import Link from 'next/link'
-import FlowNav from '@/components/FlowNav'
 
 export default function CertIssuePage() {
   const [userId, setUserId] = useState('')
@@ -35,7 +34,6 @@ export default function CertIssuePage() {
 
   return (
     <main className="site" style={{ paddingBottom: '80px' }}>
-      <FlowNav current="/cert-issue" />
 
       <header className="page-header">
         <div>

@@ -911,57 +911,6 @@ textarea.placeholder {
   }
 }
 
-/* Project flow navigation */
-.flow-nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-}
-
-.flow-nav-center {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: #64748b;
-  font-size: 13px;
-  font-weight: 600;
-}
-
-.flow-nav-step {
-  padding: 5px 9px;
-  border-radius: 999px;
-  background: #eff6ff;
-  color: #2563eb;
-}
-
-.flow-nav-title {
-  color: #334155;
-}
-
-.flow-nav-right {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-@media (max-width: 720px) {
-  .flow-nav {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .flow-nav-center {
-    order: 2;
-  }
-
-  .flow-nav-right {
-    order: 3;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-}
-
 /* Global typography normalization */
 :root {
   --font-main: 'Pretendard', 'Inter', 'Noto Sans KR', system-ui, -apple-system,
