@@ -31,7 +31,7 @@ const modules = [
     owner: '유채원',
     description: '이미지에 비밀 메시지를 숨기는 LSB 기반 스테가노그래피 기능을 구현했습니다.',
     href: '#',
-    status: '예정',
+    status: '완료',
     enabled: true,
   },
   {
