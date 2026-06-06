@@ -98,17 +98,17 @@ export default function Home() {
 
     <main className="site">
 
-     <header className="site-header" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', padding: '60px 20px 40px 20px', width: '100%' }}>
+<header className="site-header" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', padding: '80px 20px 56px 20px', width: '100%' }}>
         <div style={{ maxWidth: '800px', margin: '0 auto' }}>
 
-          <h1>보안 프로토콜 시연 시스템</h1>
+          <h1 style={{ fontSize: '2.7rem', marginBottom: '40px', wordBreak: 'keep-all', fontWeight: 'bold', letterSpacing: '-0.5px' }}>
+            보안 프로토콜 시연 시스템
+          </h1>
 
-        <p className="lead" style={{ fontSize: '1.05rem', lineHeight: '1.7', color: '#4a5568', wordBreak: 'keep-all', margin: 0 }}>
+          <p className="lead" style={{ fontSize: '1.05rem', lineHeight: '1.8', color: '#4a5568', wordBreak: 'keep-all', margin: 0, opacity: 0.9 }}>
             본 시스템은 팀 프로젝트로 구현된 보안 대시보드입니다. X.509 인증서 발급과 전자서명 로그인부터 AES-256/LSB 암호화 통신 및 TOTP 다중 인증(MFA)까지, 계획서에 설계된 엔드투엔드 보안 프로토콜의 전체 흐름을 시연하고 검증합니다.
           </p>
-
         </div>
-        
       </header>
 
 
