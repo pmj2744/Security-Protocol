@@ -118,11 +118,11 @@ export default function Home() {
 
         <div className="header-panel">
 
-          <span>Current Module</span>
+          <span>프로젝트 상태</span>
 
-          <strong>Digital Signature / MFA</strong>
+          <strong>전체 통합 완료 (Merged)</strong>
 
-          <p>전자서명 로그인 및 신원 확인(MFA) 구현 완료</p>
+          <p>보안 프로토콜 모듈 연동 완료</p>
 
         </div>
 
