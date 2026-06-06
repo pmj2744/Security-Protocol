@@ -1,6 +1,14 @@
 import Link from 'next/link'
 
+// PPT 흐름 순서에 맞춘 구조입니다.
 const modules = [
+  {
+    title: '사용자 등록 / 인증서 발급',
+    description: '사용자 공개키 등록 및 인증서 발급 기능을 수행합니다.',
+    href: '/signature-login', // 
+    status: '완료',          
+    enabled: true,          
+  },
   {
     title: '전자서명 로그인',
     description: 'Challenge-Response 방식으로 RSA 전자서명 인증을 수행합니다.',
@@ -14,17 +22,9 @@ const modules = [
     enabled: true,
   },
   {
-    title: '사용자 등록 / 인증서 발급',
-    description: '사용자 공개키 등록 및 인증서 발급 기능을 연결할 예정입니다.',
-    href: '/cert-issue', 
-    status: '완료',          
-    enabled: true,          
-  },
-  {
     title: '암호화 / 스테가노그래피',
-    // 채원님이 작성한 상세 설명으로 업데이트 완료
     description: '로그인 이후 메시지를 AES로 암호화하고, 암호문을 이미지 LSB에 은닉하여 안전한 메시지 전달을 시뮬레이션합니다.',
-    href: '/steganography', // 채원님이 스테가노그래피 실제 페이지 주소 연결 완료
+    href: '/steganography',
     status: '완료',
     enabled: true,
   },
