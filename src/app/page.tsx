@@ -108,7 +108,7 @@ export default function Home() {
   <p className="lead" style={{ fontSize: '1.05rem', lineHeight: '1.8', color: '#4a5568', wordBreak: 'keep-all', margin: 0 }}>
             본 시스템은 팀 프로젝트로 구현된 보안 대시보드입니다.
             <br />
-            X.509 인증서 발급과 전자서명 로그인부터 AES-256/LSB 암호화 통신 및 TOTP 다중 인증(MFA)까지, 계획서에 설계된 엔드투엔드 보안 프로토콜의 전체 흐름을 시연하고 검증합니다.
+            X.509 인증서 발급과 전자서명 로그인부터 AES-256/LSB 암호화 통신 및 TOTP 다중 인증(MFA)까지, 계획서에 설계된 보안 프로토콜의 전체 흐름을 시연하고 검증합니다.
           </p>
         </div>
       </header>
