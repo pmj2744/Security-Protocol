@@ -214,58 +214,6 @@ export default function Home() {
 
       </section>
 
-
-
-      <section className="section split">
-
-        <div>
-
-          <p className="eyebrow">Implemented Flow</p>
-
-          <h2>정은미 파트 구현 흐름</h2>
-
-        </div>
-
-
-
-        <div className="flow-stack">
-
-          <div className="flow-line">
-
-            <span>01</span>
-
-            <p>서버가 랜덤 Challenge를 생성합니다.</p>
-
-          </div>
-
-          <div className="flow-line">
-
-            <span>02</span>
-
-            <p>Challenge 또는 메시지 해시값에 RSA 개인키로 서명합니다.</p>
-
-          </div>
-
-          <div className="flow-line">
-
-            <span>03</span>
-
-            <p>서버는 공개키로 전자서명을 검증합니다.</p>
-
-          </div>
-
-          <div className="flow-line">
-
-            <span>04</span>
-
-            <p>원본 메시지와 변조 메시지의 검증 결과를 비교합니다.</p>
-
-          </div>
-
-        </div>
-
-      </section>
-
     </main>
 
   );
