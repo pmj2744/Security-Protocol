@@ -128,7 +128,7 @@ export default function SignatureLoginPage() {
       <header className="page-header">
         <div>
           <p className="eyebrow">X.509 PKI & Digital Signature</p>
-          <h1>사용자 인증 및 발급 체계</h1>
+          <h1>전사서명 로그인</h1>
           <p className="lead">
             서버가 발급한 Challenge에 대해 RSA 전자서명을 생성하고, 공개키로
             검증하여 로그인 성공 여부를 판단합니다.
