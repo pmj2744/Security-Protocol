@@ -108,7 +108,9 @@ export default function Home() {
   <p className="lead" style={{ fontSize: '1.05rem', lineHeight: '1.8', color: '#4a5568', wordBreak: 'keep-all', margin: 0 }}>
             본 시스템은 팀 프로젝트로 구현된 보안 대시보드입니다.
             <br />
-            X.509 인증서 발급과 전자서명 로그인부터 AES-256/LSB 암호화 통신 및 TOTP 다중 인증(MFA)까지, 계획서에 설계된 보안 프로토콜의 전체 흐름을 시연하고 검증합니다.
+            X.509 인증서 발급과 전자서명 로그인부터 AES-256/LSB 암호화 통신 및 TOTP 다중 인증(MFA)까지, 
+            <br />
+            계획서에 설계된 보안 프로토콜의 전체 흐름을 시연하고 검증합니다.
           </p>
         </div>
       </header>
@@ -137,6 +139,12 @@ export default function Home() {
 
 
 
+              <article className="module-row" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%', padding: '24px' }}>
+  <div className="module-main" style={{ flex: 1, textAlign: 'left' }}>
+    <h3>{module.title}</h3>
+    <p style={{ color: '#718096', marginTop: '4px' }}>{module.description}</p>
+  </div>
+            
               {module.enabled ? (
                   <Link href={module.href} style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '40px', height: '40px', backgroundColor: '#3b82f6', color: '#fff', borderRadius: '8px', textDecoration: 'none', transition: 'background 0.2s' }}>
                     ➔
