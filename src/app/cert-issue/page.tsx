@@ -19,7 +19,7 @@ export default function CertIssuePage() {
     }
 
     setLoading(true)
-    Result(null)
+    setResult(null)
     setStep(1)
 
     setTimeout(() => {
