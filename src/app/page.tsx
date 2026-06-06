@@ -29,7 +29,7 @@ const modules = [
   {
     title: '암호화 / 스테가노그래피',
     owner: '유채원',
-    description: '이미지에 비밀 메시지를 숨기는 LSB 기반 스테가노그래피 기능을 구현했습니다.',
+    description: '로그인 이후 메시지를 AES로 암호화하고, 암호문을 이미지 LSB에 은닉하여 안전한 메시지 전달을 시뮬레이션합니다.',
     href: '/steganography',
     status: '완료',
     enabled: true,
