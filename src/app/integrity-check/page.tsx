@@ -2,7 +2,6 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import FlowNav from '@/components/FlowNav'
 
 type IntegrityPacket = {
   message: string
@@ -66,7 +65,6 @@ export default function IntegrityCheckPage() {
 
   return (
     <main className="site">
-      <FlowNav current="/integrity-check" />
 
       <header className="page-header">
         <div>
