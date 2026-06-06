@@ -37,8 +37,8 @@ export default function Home() {
   return (
     <main className="site" style={{ width: '100%', minHeight: '100vh', paddingBottom: '80px' }}>
       
-      {/* 중앙 정렬, 부제목 (<br /> 줄바꿈 반영) */}
-      <header className="site-header" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', padding: '80px 20px 56px 20px', width: '100%' }}>
+      {/* 1. 상단 타이틀 및 부제목 구역 */}
+      <header className="site-header" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', padding: '80px 20px 40px 20px', width: '100%' }}>
         <div style={{ maxWidth: '800px', margin: '0 auto' }}>
           <h1 style={{ fontSize: '2.7rem', marginBottom: '40px', wordBreak: 'keep-all', fontWeight: 'bold', letterSpacing: '-0.5px' }}>
             보안 프로토콜 시연 시스템
@@ -53,12 +53,25 @@ export default function Home() {
         </div>
       </header>
 
-      {/*중복 꼬임 에러를 해결하고, 중앙 800px 너비로 축을 완벽히 맞췄습니다. */}
-      <section className="section" style={{ maxWidth: '800px', margin: '120px auto 0 auto', padding: '20px', width: '100%' }}>
+      {/* 👥 중앙 밸런스를 잡아주는 팀 프로젝트 참여 조원 정보 박스 */}
+      <section style={{ maxWidth: '800px', margin: '20px auto 40px auto', padding: '0 20px', width: '100%' }}>
+        <div className="team-panel" style={{ padding: '24px', background: '#f8f9fa', borderRadius: '12px', border: '1px solid #e9ecef', textAlign: 'center' }}>
+          <h4 style={{ margin: '0 0 16px 0', fontSize: '14px', color: '#6c757d', letterSpacing: '1px', fontWeight: 'bold' }}>TEAM MEMBERS & ROLES</h4>
+          <div style={{ display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap', gap: '16px', fontSize: '14px', color: '#2d3748' }}>
+            <div><strong>박민지</strong> 
+            <div><strong>조민정</strong> 
+            <div><strong>정은미</strong> 
+            <div><strong>유채원</strong> 
+            <div><strong>김정서</strong>
+          </div>
+        </div>
+      </section>
+
+      {/* 2. 하단 기능 카드 리스트 구역 */}
+      <section className="section" style={{ maxWidth: '800px', margin: '0 auto', padding: '20px', width: '100%' }}>
         <div className="module-list" style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
           
           {modules.map((module) => (
-            // 💡 display: 'flex'와 justifyContent: 'space-between'으로 글씨는 왼쪽, 버튼은 오른쪽 끝에 배치!
             <article key={module.title} className="module-row" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%', padding: '24px', backgroundColor: '#fff', borderRadius: '12px', border: '1px solid #e2e8f0', boxShadow: '0 1px 3px rgba(0,0,0,0.05)' }}>
               
               {/* 기능 소개 텍스트는 왼쪽 정렬 */}
