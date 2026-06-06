@@ -291,13 +291,11 @@ export default function SteganographyPage() {
 
   return (
     <main className="site" style={{ paddingBottom: '80px' }}>
-      {/* 상단 네비게이션 동선 매칭 */}
       <nav className="subnav">
         <Link href="/">← 프로젝트 홈</Link>
         <Link href="/identity-check">신원 확인 (MFA) ➔</Link>
       </nav>
 
-      {/* 헤더 세션 - 다른 화면과 폰트 크기 100% 매칭 */}
       <header className="page-header">
         <div>
           <p className="eyebrow">SECURE MESSAGE TRANSFER</p>
@@ -311,7 +309,6 @@ export default function SteganographyPage() {
 
       <div style={{ maxWidth: '750px', margin: '0 auto', padding: '0 20px', display: 'flex', flexDirection: 'column', gap: '32px' }}>
         
-        {/* 1. 송신자 영역 카드 패널 */}
         <div style={{ background: '#fff', padding: '30px', borderRadius: '12px', border: '1px solid #e2e8f0', boxShadow: '0 4px 6px rgba(0,0,0,0.02)' }}>
           <h2 style={{ fontSize: '1.25rem', fontWeight: 'bold', marginBottom: '8px', color: '#1a202c' }}>1. 송신자: 메시지 암호화 및 이미지 은닉</h2>
           <p style={{ color: '#718096', fontSize: '0.9rem', marginBottom: '20px', lineHeight: '1.6' }}>
@@ -370,7 +367,6 @@ export default function SteganographyPage() {
           </div>
         </div>
 
-        {/* 2. 수신자 영역 카드 패널 */}
         <div style={{ background: '#fff', padding: '30px', borderRadius: '12px', border: '1px solid #e2e8f0', boxShadow: '0 4px 6px rgba(0,0,0,0.02)' }}>
           <h2 style={{ fontSize: '1.25rem', fontWeight: 'bold', marginBottom: '8px', color: '#1a202c' }}>2. 수신자: 암호문 추출 및 메시지 복호화</h2>
           <p style={{ color: '#718096', fontSize: '0.9rem', marginBottom: '20px', lineHeight: '1.6' }}>
@@ -414,21 +410,11 @@ export default function SteganographyPage() {
                 <h3 style={{ fontSize: '14px', fontWeight: 'bold', color: '#155724', marginBottom: '4px' }}>🎉 [최종 복호화 대성공] 원본 메시지 확인:</h3>
                 <p style={{ fontSize: '16px', fontWeight: 'bold', color: '#1b5e20', margin: 0 }}>{decryptedMessage}</p>
 
-                {/* 📊 [시연 최종 치트키] 복호화까지 완벽 성공 시 정서님의 다중 인증 파트로 순간 이동하는 연계 워프 버튼 활성화 */}
                 <div style={{ textAlign: 'center', marginTop: '20px' }}>
                   <Link 
                     href="/identity-check" 
                     style={{ 
-                      display: 'inline-block', 
-                      padding: '10px 24px', 
-                      backgroundColor: '#2563eb', 
-                      color: '#fff', 
-                      borderRadius: '30px', 
-                      fontSize: '14px', 
-                      fontWeight: 'bold', 
-                      textDecoration: 'none',
-                      boxShadow: '0 4px 6px rgba(37, 99, 235, 0.2)',
-                      transition: 'all 0.2s'
+                      display: 'inline-block', padding: '10px 24px', backgroundColor: '#2563eb', color: '#fff', borderRadius: '30px', fontSize: '14px', fontWeight: 'bold', textDecoration: 'none', boxShadow: '0 4px 6px rgba(37, 99, 235, 0.2)', transition: 'all 0.2s'
                     }}
                   >
                     다음 단계: 수신자 신원 확인 및 다중 인증(MFA) 시연하기 ➔
@@ -439,7 +425,6 @@ export default function SteganographyPage() {
           </div>
         </div>
 
-        {/* 하단 전체 데이터 흐름도 레이아웃 정돈 */}
         <div style={{ background: '#f8fafc', padding: '25px', borderRadius: '12px', border: '1px solid #e2e8f0' }}>
           <h2 style={{ fontSize: '1.1rem', fontWeight: 'bold', marginBottom: '14px', color: '#1a202c' }}>전체 데이터 흐름</h2>
           <ol style={{ fontSize: '14px', color: '#4a5568', lineHeight: '1.8', paddingLeft: '20px', margin: 0 }}>

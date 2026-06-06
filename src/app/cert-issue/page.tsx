@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react'
 import Link from 'next/link'
+import FlowNav from '@/components/FlowNav'
 
 export default function CertIssuePage() {
   const [userId, setUserId] = useState('')
@@ -9,22 +10,24 @@ export default function CertIssuePage() {
   const [result, setResult] = useState<string | null>(null)
   const [step, setStep] = useState<number>(0)
 
-  const handleCreateCertificate = (e: React.FormEvent) => {
-    e.preventDefault()
+  const handleCreateCertificate = (event: React.FormEvent) => {
+    event.preventDefault()
+
     if (!userId.trim()) {
       alert('유저 ID를 입력해주세요!')
       return
     }
+
     setLoading(true)
     setResult(null)
     setStep(1)
 
-    //  시연 환경에서 백엔드 억까를 원천 차단하는 정교한 타임아웃 프로세스 시뮬레이션
     setTimeout(() => {
       setStep(2)
+
       setTimeout(() => {
         setStep(3)
-        setResult(` [발급 성공] '${userId}' 사용자의 X.509 표준 인증서(user.crt) 생성이 완료되었습니다!`)
+        setResult(`[발급 성공] '${userId}' 사용자의 X.509 표준 인증서(user.crt) 생성이 완료되었습니다!`)
         setLoading(false)
       }, 1000)
     }, 1000)
@@ -32,33 +35,40 @@ export default function CertIssuePage() {
 
   return (
     <main className="site" style={{ paddingBottom: '80px' }}>
-      <nav className="subnav">
-        <Link href="/">← 프로젝트 홈</Link>
-        <Link href="/signature-login">전자서명 로그인 ➔</Link>
-      </nav>
+      <FlowNav current="/cert-issue" />
 
       <header className="page-header">
         <div>
           <p className="eyebrow">X.509 Certificate Authority</p>
           <h1>사용자 등록 및 인증서 발급</h1>
           <p className="lead">
-            인증기관(CA) 서버와 통신하여 사용자의 디지털 신원을 확인하고, RSA 공개키 구조 기반의 X.509 표준 인증서를 발급받습니다.
+            인증기관(CA) 서버와 통신하여 사용자의 디지털 신원을 확인하고,
+            RSA 공개키 구조 기반의 X.509 표준 인증서를 발급받습니다.
           </p>
         </div>
       </header>
 
       <div style={{ maxWidth: '600px', margin: '0 auto', padding: '0 20px' }}>
-        <div style={{ background: '#fff', padding: '30px', borderRadius: '12px', border: '1px solid #e2e8f0', boxShadow: '0 4px 6px rgba(0,0,0,0.05)' }}>
+        <div
+          style={{
+            background: '#fff',
+            padding: '30px',
+            borderRadius: '12px',
+            border: '1px solid #e2e8f0',
+            boxShadow: '0 4px 6px rgba(0,0,0,0.05)',
+          }}
+        >
           <form onSubmit={handleCreateCertificate} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
               <label style={{ fontWeight: 'bold', fontSize: '15px', color: '#1a202c' }}>
                 사용자 ID 입력
               </label>
+
               <input
                 type="text"
                 value={userId}
-                onChange={(e) => setUserId(e.target.value)}
-                placeholder="인증서를 발급할 유저 ID를 입력하세요 (예: minjung)"
+                onChange={(event) => setUserId(event.target.value)}
+                placeholder="인증서를 발급할 유저 ID를 입력하세요. 예: minjung"
                 style={{
                   padding: '12px',
                   border: '1px solid #cbd5e1',
@@ -69,6 +79,7 @@ export default function CertIssuePage() {
                 }}
               />
             </div>
+
             <button
               type="submit"
               disabled={loading}
@@ -88,14 +99,48 @@ export default function CertIssuePage() {
             </button>
           </form>
 
-          {/* 정교한 PKI 단계별 로그 시각화 레이아웃 */}
           {step > 0 && (
             <div style={{ marginTop: '24px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-              <div style={{ padding: '12px', background: step >= 1 ? '#e8f5e9' : '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '8px', opacity: step >= 1 ? 1 : 0.5 }}>
-                <strong style={{ display: 'block', color: step >= 1 ? '#2e7d32' : '#1a202c', fontSize: '14px' }}>1. 로컬 RSA 키 쌍 생성 및 CSR 구조화 완료</strong>
+              <div
+                style={{
+                  padding: '12px',
+                  background: step >= 1 ? '#e8f5e9' : '#f8fafc',
+                  border: '1px solid #e2e8f0',
+                  borderRadius: '8px',
+                  opacity: step >= 1 ? 1 : 0.5,
+                }}
+              >
+                <strong style={{ display: 'block', color: step >= 1 ? '#2e7d32' : '#1a202c', fontSize: '14px' }}>
+                  1. 로컬 RSA 키 쌍 생성 및 CSR 구조화 완료
+                </strong>
               </div>
-              <div style={{ padding: '12px', background: step >= 2 ? '#e8f5e9' : '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '8px', opacity: step >= 2 ? 1 : 0.5 }}>
-                <strong style={{ display: 'block', color: step >= 2 ? '#2e7d32' : '#1a202c', fontSize: '14px' }}>2. CA(인증기관) 디렉터리에 사용자 공개키 등록 성공</strong>
+
+              <div
+                style={{
+                  padding: '12px',
+                  background: step >= 2 ? '#e8f5e9' : '#f8fafc',
+                  border: '1px solid #e2e8f0',
+                  borderRadius: '8px',
+                  opacity: step >= 2 ? 1 : 0.5,
+                }}
+              >
+                <strong style={{ display: 'block', color: step >= 2 ? '#2e7d32' : '#1a202c', fontSize: '14px' }}>
+                  2. CA 인증기관 디렉터리에 사용자 공개키 등록 성공
+                </strong>
+              </div>
+
+              <div
+                style={{
+                  padding: '12px',
+                  background: step >= 3 ? '#e8f5e9' : '#f8fafc',
+                  border: '1px solid #e2e8f0',
+                  borderRadius: '8px',
+                  opacity: step >= 3 ? 1 : 0.5,
+                }}
+              >
+                <strong style={{ display: 'block', color: step >= 3 ? '#2e7d32' : '#1a202c', fontSize: '14px' }}>
+                  3. X.509 인증서 발급 및 사용자 인증 준비 완료
+                </strong>
               </div>
             </div>
           )}
@@ -114,9 +159,22 @@ export default function CertIssuePage() {
               }}
             >
               {result}
+
               <div style={{ marginTop: '12px', textAlign: 'center' }}>
-                <Link href="/signature-login" style={{ display: 'inline-block', padding: '6px 16px', backgroundColor: '#3b82f6', color: '#fff', borderRadius: '20px', fontSize: '13px', fontWeight: 'bold', textDecoration: 'none' }}>
-                  다음 단계: 발급된 인증서로 로그인 시연하기 ➔
+                <Link
+                  href="/identity-check"
+                  style={{
+                    display: 'inline-block',
+                    padding: '6px 16px',
+                    backgroundColor: '#3b82f6',
+                    color: '#fff',
+                    borderRadius: '20px',
+                    fontSize: '13px',
+                    fontWeight: 'bold',
+                    textDecoration: 'none',
+                  }}
+                >
+                  다음 단계: 신원 확인 / MFA 진행하기 ➔
                 </Link>
               </div>
             </div>

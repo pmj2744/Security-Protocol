@@ -1,57 +1,72 @@
-"use client";
+'use client'
 
-import Link from "next/link";
-import { useState } from "react";
+import { useState } from 'react'
+import Link from 'next/link'
+import FlowNav from '@/components/FlowNav'
 
 type IntegrityPacket = {
-  message: string;
-  hash: string;
-  signature: string;
-};
+  message: string
+  hash: string
+  signature: string
+}
 
 type IntegrityResult = {
-  recalculatedHash: string;
-  hashMatch: boolean;
-  signatureValid: boolean;
-  integrityValid: boolean;
-};
+  recalculatedHash: string
+  hashMatch: boolean
+  signatureValid: boolean
+  integrityValid: boolean
+}
 
 type IntegrityApiResponse = {
-  success: boolean;
-  packet: IntegrityPacket;
-  normalResult: IntegrityResult;
-  tamperedMessage: string;
-  tamperedResult: IntegrityResult;
-};
+  success: boolean
+  packet: IntegrityPacket
+  normalResult: IntegrityResult
+  tamperedMessage: string
+  tamperedResult: IntegrityResult
+}
 
 export default function IntegrityCheckPage() {
-  const [message, setMessage] = useState("");
-  const [result, setResult] = useState<IntegrityApiResponse | null>(null);
+  const [message, setMessage] = useState('')
+  const [result, setResult] = useState<IntegrityApiResponse | null>(null)
+  const [loading, setLoading] = useState(false)
+
+  const showResult = Boolean(result?.success)
+  const hashValue = result?.packet.hash ?? ''
+  const signatureValue = result?.packet.signature ?? ''
 
   const verifyIntegrity = async () => {
     if (!message.trim()) {
-      alert("메시지를 입력하세요.");
-      return;
+      alert('메시지를 입력하세요.')
+      return
     }
 
-    const response = await fetch("/api/integrity-check/verify", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ message }),
-    });
+    setLoading(true)
 
-    const data = (await response.json()) as IntegrityApiResponse;
-    setResult(data);
-  };
+    try {
+      const response = await fetch('/api/integrity-check/verify', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ message }),
+      })
+
+      if (!response.ok) {
+        throw new Error('무결성 검증 API 요청에 실패했습니다.')
+      }
+
+      const data = (await response.json()) as IntegrityApiResponse
+      setResult(data)
+    } catch {
+      alert('무결성 검증 중 오류가 발생했습니다.')
+    } finally {
+      setLoading(false)
+    }
+  }
 
   return (
     <main className="site">
-      <nav className="subnav">
-        <Link href="/">← 프로젝트 홈</Link>
-        <Link href="/signature-login">전자서명 로그인</Link>
-      </nav>
+      <FlowNav current="/integrity-check" />
 
       <header className="page-header">
         <div>
@@ -100,15 +115,20 @@ export default function IntegrityCheckPage() {
               onChange={(event) => setMessage(event.target.value)}
               placeholder="검증할 메시지를 입력하세요."
             />
-            <button className="button primary" onClick={verifyIntegrity}>
-              검증 실행
+
+            <button
+              className="button primary"
+              onClick={verifyIntegrity}
+              disabled={loading}
+            >
+              {loading ? '검증 중...' : '검증 실행'}
             </button>
           </div>
 
           {!result && (
             <div className="empty-timeline">
-              메시지를 입력하고 검증을 실행하면 해시 생성, 전자서명, 원본 검증,
-              변조 검증 과정이 순서대로 표시됩니다.
+              메시지를 입력하고 검증을 실행하면 해시 생성, 전자서명,
+              원본 검증, 변조 검증 과정이 순서대로 표시됩니다.
             </div>
           )}
 
@@ -120,7 +140,9 @@ export default function IntegrityCheckPage() {
                   <div className="timeline-content">
                     <h3>원본 메시지 입력</h3>
                     <p>사용자가 검증할 메시지를 입력합니다.</p>
-                    <div className="code-box compact">{result.packet.message}</div>
+                    <div className="code-box compact">
+                      {result.packet.message}
+                    </div>
                   </div>
                 </article>
 
@@ -132,7 +154,9 @@ export default function IntegrityCheckPage() {
                       메시지를 고정 길이의 해시값으로 변환합니다. 메시지가 조금만
                       바뀌어도 이 값은 완전히 달라집니다.
                     </p>
-                    <div className="code-box compact">{result.packet.hash}</div>
+                    <div className="code-box compact">
+                      {result.packet.hash}
+                    </div>
                   </div>
                 </article>
 
@@ -159,15 +183,27 @@ export default function IntegrityCheckPage() {
 
                     <div className="check-row">
                       <span>해시값 일치</span>
-                      <strong className={result.normalResult.hashMatch ? "ok-text" : "fail-text"}>
-                        {result.normalResult.hashMatch ? "통과" : "실패"}
+                      <strong
+                        className={
+                          result.normalResult.hashMatch
+                            ? 'ok-text'
+                            : 'fail-text'
+                        }
+                      >
+                        {result.normalResult.hashMatch ? '통과' : '실패'}
                       </strong>
                     </div>
 
                     <div className="check-row">
                       <span>전자서명 검증</span>
-                      <strong className={result.normalResult.signatureValid ? "ok-text" : "fail-text"}>
-                        {result.normalResult.signatureValid ? "통과" : "실패"}
+                      <strong
+                        className={
+                          result.normalResult.signatureValid
+                            ? 'ok-text'
+                            : 'fail-text'
+                        }
+                      >
+                        {result.normalResult.signatureValid ? '통과' : '실패'}
                       </strong>
                     </div>
                   </div>
@@ -188,17 +224,29 @@ export default function IntegrityCheckPage() {
 
                     <div className="check-row">
                       <span>해시값 일치</span>
-                      <strong className={result.tamperedResult.hashMatch ? "ok-text" : "fail-text"}>
-                        {result.tamperedResult.hashMatch ? "통과" : "실패"}
+                      <strong
+                        className={
+                          result.tamperedResult.hashMatch
+                            ? 'ok-text'
+                            : 'fail-text'
+                        }
+                      >
+                        {result.tamperedResult.hashMatch ? '통과' : '실패'}
                       </strong>
                     </div>
 
                     <div className="check-row">
                       <span>최종 무결성</span>
-                      <strong className={result.tamperedResult.integrityValid ? "ok-text" : "fail-text"}>
+                      <strong
+                        className={
+                          result.tamperedResult.integrityValid
+                            ? 'ok-text'
+                            : 'fail-text'
+                        }
+                      >
                         {result.tamperedResult.integrityValid
-                          ? "검증 성공"
-                          : "변조 탐지"}
+                          ? '검증 성공'
+                          : '변조 탐지'}
                       </strong>
                     </div>
                   </div>
@@ -218,10 +266,92 @@ export default function IntegrityCheckPage() {
                   <p>재계산된 해시값이 달라져 메시지 변조가 탐지되었습니다.</p>
                 </article>
               </section>
+
+              {/* 검증 성공 시 로그 및 파란색 워프 링크 버튼 활성화 레이아웃 */}
+              {showResult && (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                  <div
+                    style={{
+                      background: '#f8fafc',
+                      border: '1px solid #e2e8f0',
+                      padding: '20px',
+                      borderRadius: '8px',
+                      fontSize: '14px',
+                    }}
+                  >
+                    <div style={{ marginBottom: '10px' }}>
+                      <strong>[1] 생성된 해시 (M):</strong>{' '}
+                      <code
+                        style={{
+                          background: '#e2e8f0',
+                          padding: '2px 6px',
+                          borderRadius: '4px',
+                          fontSize: '13px',
+                          wordBreak: 'break-all',
+                        }}
+                      >
+                        {hashValue}
+                      </code>
+                    </div>
+
+                    <div style={{ marginBottom: '10px' }}>
+                      <strong>[2] 메시지 전자서명 (S):</strong>{' '}
+                      <code
+                        style={{
+                          background: '#e2e8f0',
+                          padding: '2px 6px',
+                          borderRadius: '4px',
+                          fontSize: '13px',
+                          wordBreak: 'break-all',
+                        }}
+                      >
+                        {signatureValue}
+                      </code>
+                    </div>
+
+                    <div
+                      style={{
+                        marginTop: '14px',
+                        padding: '10px',
+                        backgroundColor: '#e8f5e9',
+                        border: '1px solid #10b981',
+                        borderRadius: '6px',
+                        color: '#155724',
+                        fontWeight: '500',
+                      }}
+                    >
+                      🎉 [무결성 검증 완벽] 전송 과정 중 단 1비트의 무단 조작이나
+                      데이터 누락도 발생하지 않은 클린 상태임이 수학적으로
+                      검증되었습니다!
+                    </div>
+                  </div>
+
+                  {/* [시연 전용 핵심 스위치] 다음 단계 암호화로 워프하는 파란색 하이라이트 버튼 */}
+                  <div style={{ textAlign: 'center', marginTop: '10px' }}>
+                    <Link
+                      href="/steganography"
+                      style={{
+                        display: 'inline-block',
+                        padding: '10px 24px',
+                        backgroundColor: '#2563eb',
+                        color: '#fff',
+                        borderRadius: '30px',
+                        fontSize: '14px',
+                        fontWeight: 'bold',
+                        textDecoration: 'none',
+                        boxShadow: '0 4px 6px rgba(37, 99, 235, 0.2)',
+                        transition: 'all 0.2s',
+                      }}
+                    >
+                      다음 단계: 메시지 암호화 및 은닉 시연하기 ➔
+                    </Link>
+                  </div>
+                </div>
+              )}
             </>
           )}
         </section>
       </section>
     </main>
-  );
+  )
 }
