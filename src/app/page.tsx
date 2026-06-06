@@ -29,10 +29,10 @@ const modules = [
   {
     title: '암호화 / 스테가노그래피',
     owner: '유채원',
-    description: '데이터 암호화 및 은닉 기능을 연결할 예정입니다.',
+    description: '이미지에 비밀 메시지를 숨기는 LSB 기반 스테가노그래피 기능을 구현했습니다.',
     href: '#',
     status: '예정',
-    enabled: false,
+    enabled: true,
   },
   {
     title: '신원 확인',
