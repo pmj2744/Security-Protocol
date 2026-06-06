@@ -164,7 +164,7 @@ export default function Home() {
 
                 <Link className="text-link" href={module.href}>
 
-                  열기
+                  시연하기 ➡️
 
                 </Link>
 
