@@ -5,7 +5,7 @@ const modules = [
   {
     title: '사용자 등록 / 인증서 발급',
     description: '사용자 공개키 등록 및 인증서 발급 기능을 수행합니다.',
-    href: '/signature-login', // 
+    href: '/cert-issue' // 
     status: '완료',          
     enabled: true,          
   },
