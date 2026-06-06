@@ -54,8 +54,11 @@ export default function Home() {
       </header>
 
       {/*중복 꼬임 에러를 해결하고, 중앙 800px 너비로 축을 완벽히 맞췄습니다. */}
-      <section className="section" style={{ maxWidth: '800px', margin: '120px auto 0 auto', padding: '20px', width: '100%' }}>
+      <hr style={{ border: 0, height: '1px', backgroundColor: '#e2e8f0', maxWidth: '800px', margin: '60px auto 0 auto', opacity: 0.7 }} />
+
+      <section className="section" style={{ maxWidth: '800px', margin: '60px auto 0 auto', padding: '20px', width: '100%' }}>
         <div className="module-list" style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+
           {modules.map((module) => (
             // 💡 display: 'flex'와 justifyContent: 'space-between'으로 글씨는 왼쪽, 버튼은 오른쪽 끝에 배치!
             <article key={module.title} className="module-row" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%', padding: '24px', backgroundColor: '#fff', borderRadius: '12px', border: '1px solid #e2e8f0', boxShadow: '0 1px 3px rgba(0,0,0,0.05)' }}>
