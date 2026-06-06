@@ -111,19 +111,7 @@ export default function Home() {
           </p>
 
         </div>
-
-
-
-        <div className="header-panel">
-
-          <span>프로젝트 상태</span>
-
-          <strong>전체 통합 완료 (Merged)</strong>
-
-          <p>보안 프로토콜 모듈 연동 완료</p>
-
-        </div>
-
+        
       </header>
 
 
@@ -153,12 +141,6 @@ export default function Home() {
                 <div className="module-title-line">
 
                   <h3>{module.title}</h3>
-
-                  <span className={module.enabled ? 'tag done' : 'tag muted'}>
-
-                    {module.status}
-
-                  </span>
 
                 </div>
 
