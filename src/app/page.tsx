@@ -115,18 +115,6 @@ export default function Home() {
 
       <section className="section">
 
-        <div className="section-head">
-
-          <div>
-
-            <h2>팀 프로젝트 기능 구성</h2>
-
-          </div>
-
-        </div>
-
-
-
         <div className="module-list">
 
           {modules.map((module) => (
