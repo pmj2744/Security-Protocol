@@ -204,12 +204,35 @@ export default function SignatureLoginPage() {
             </div>
           )}
 
-          {result && (
+         {result && (
             <div className={result.success ? "result success" : "result fail"}>
               <strong>{result.success ? "로그인 성공" : "로그인 실패"}</strong>
               <p>{result.message}</p>
+
+              {/* ✨ [시연용 치트키] 로그인 성공(true) 시에만 나타나는 파란색 워프 버튼 */}
+              {result.success && (
+                <div style={{ marginTop: '16px', textAlign: 'center' }}>
+                  <Link 
+                    href="/integrity-check" 
+                    style={{ 
+                      display: 'inline-block', 
+                      padding: '8px 20px', 
+                      backgroundColor: '#2563eb', // 시원한 파란색
+                      color: '#fff', 
+                      borderRadius: '20px', 
+                      fontSize: '13px', 
+                      fontWeight: 'bold', 
+                      textDecoration: 'none',
+                      boxShadow: '0 2px 4px rgba(37, 99, 235, 0.2)',
+                      transition: 'all 0.2s'
+                    }}
+                  >
+                    다음 단계: 메시지 무결성 검증 시연하기 ➔
+                  </Link>
+                </div>
+              )}
             </div>
-          )}
+          )} 
         </aside>
       </section>
     </main>
