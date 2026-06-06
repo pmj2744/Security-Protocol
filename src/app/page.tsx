@@ -102,8 +102,6 @@ export default function Home() {
 
         <div>
 
-          <p className="eyebrow">Security Protocol Project</p>
-
           <h1>공개키 기반 보안 프로토콜 시연</h1>
 
           <p className="lead">
@@ -135,8 +133,6 @@ export default function Home() {
         <div className="section-head">
 
           <div>
-
-            <p className="eyebrow">Modules</p>
 
             <h2>팀 프로젝트 기능 구성</h2>
 
