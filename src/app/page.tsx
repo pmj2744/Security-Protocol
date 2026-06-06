@@ -154,7 +154,7 @@ export default function Home() {
 
                 <Link className="text-link" href={module.href}>
 
-                  시연하기 ➡️
+                  시연 ➡️
 
                 </Link>
 
