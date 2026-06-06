@@ -22,7 +22,7 @@ const modules = [
     title: '사용자 등록 / 인증서 발급',
     owner: '조민정',
     description: '사용자 공개키 등록 및 인증서 발급 기능을 연결할 예정입니다.',
-    href: '/steganography', // 1. 원래 '#' 이던 것을 우리가 만든 폴더 주소로 변경!
+    href: '/signature-login', // steganography 대신 진짜 민정님 폴더 주소로 수정!
     status: '완료', // 2. '예정'을 '완료'로 변경!
     enabled: true, // 3. false를 true로 변경해서 버튼 활성화!
   },
