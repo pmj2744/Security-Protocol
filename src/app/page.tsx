@@ -16,14 +16,16 @@ const modules = [
   {
     title: '사용자 등록 / 인증서 발급',
     description: '사용자 공개키 등록 및 인증서 발급 기능을 연결할 예정입니다.',
-    href: '/signature-login', //  민정님이 올린 인증서 발급 페이지 진짜 주소 반영 완료!
-    status: '완료',          //  민정님이 추가한 상태 값 반영 완료!
-    enabled: true,          //  대기 마크를 떼고 파란색 이동 버튼 활성화 완료!
+    href: '/signature-login', 
+    status: '완료',          
+    enabled: true,          
   },
   {
     title: '암호화 / 스테가노그래피',
-    description: '이미지에 비밀 메시지를 숨기는 LSB 기반 스테가노그래피 기능을 구현했습니다.',
-    href: '#',
+    // 채원님이 작성한 상세 설명으로 업데이트 완료
+    description: '로그인 이후 메시지를 AES로 암호화하고, 암호문을 이미지 LSB에 은닉하여 안전한 메시지 전달을 시뮬레이션합니다.',
+    href: '/steganography', // 채원님이 스테가노그래피 실제 페이지 주소 연결 완료
+    status: '완료',
     enabled: true,
   },
   {
