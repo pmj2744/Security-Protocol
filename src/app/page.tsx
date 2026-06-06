@@ -53,16 +53,15 @@ export default function Home() {
         </div>
       </header>
 
-      {/* 👥 중앙 밸런스를 잡아주는 팀 프로젝트 참여 조원 정보 박스 */}
-      <section style={{ maxWidth: '800px', margin: '20px auto 40px auto', padding: '0 20px', width: '100%' }}>
-        <div className="team-panel" style={{ padding: '24px', background: '#f8f9fa', borderRadius: '12px', border: '1px solid #e9ecef', textAlign: 'center' }}>
-          <h4 style={{ margin: '0 0 16px 0', fontSize: '14px', color: '#6c757d', letterSpacing: '1px', fontWeight: 'bold' }}>TEAM MEMBERS & ROLES</h4>
-          <div style={{ display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap', gap: '16px', fontSize: '14px', color: '#2d3748' }}>
-            <div><strong>박민지</strong> 
-            <div><strong>조민정</strong> 
-            <div><strong>정은미</strong> 
-            <div><strong>유채원</strong> 
-            <div><strong>김정서</strong>
+      {/*  5명 이름 */}
+      <section style={{ maxWidth: '800px', margin: '10px auto 30px auto', padding: '0 20px', width: '100%' }}>
+        <div className="team-panel" style={{ padding: '16px 24px', background: '#f8f9fa', borderRadius: '12px', border: '1px solid #e9ecef', textAlign: 'center' }}>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '24px', flexWrap: 'wrap', fontSize: '14px', color: '#4a5568', fontWeight: '500', letterSpacing: '0.5px' }}>
+            <span>박민지</span>
+            <span>조민정</span>
+            <span>정은미</span>
+            <span>유채원</span>
+            <span>김정서</span>
           </div>
         </div>
       </section>
@@ -80,7 +79,7 @@ export default function Home() {
                 <p style={{ color: '#718096', marginTop: '6px', marginBottom: 0, fontSize: '0.95rem', lineHeight: '1.5' }}>{module.description}</p>
               </div>
 
-              {/* 화살표 버튼/대기 마크는 카드 오른쪽 끝 정렬 */}
+              {/* 화살표 버튼은 카드 오른쪽 끝 정렬 */}
               <div className="module-action">
                 {module.enabled ? (
                   <Link href={module.href} style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '40px', height: '40px', backgroundColor: '#3b82f6', color: '#fff', borderRadius: '8px', textDecoration: 'none', fontSize: '1.2rem', fontWeight: 'bold', transition: 'background 0.2s' }}>
