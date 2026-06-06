@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from 'next/link'
 
 const modules = [
   {
@@ -16,8 +16,9 @@ const modules = [
   {
     title: '사용자 등록 / 인증서 발급',
     description: '사용자 공개키 등록 및 인증서 발급 기능을 연결할 예정입니다.',
-    href: '#',
-    enabled: false,
+    href: '/signature-login', //  민정님이 올린 인증서 발급 페이지 진짜 주소 반영 완료!
+    status: '완료',          //  민정님이 추가한 상태 값 반영 완료!
+    enabled: true,          //  대기 마크를 떼고 파란색 이동 버튼 활성화 완료!
   },
   {
     title: '암호화 / 스테가노그래피',
@@ -31,7 +32,7 @@ const modules = [
     href: '/identity-check',
     enabled: true,
   },
-];
+]
 
 export default function Home() {
   return (
@@ -53,7 +54,7 @@ export default function Home() {
         </div>
       </header>
 
-      {/* [ 희미한 선 및 배경 제거] 투명하게 정돈된 조원 이름 & PPT 버튼 구역 */}
+      {/* [희미한 선 및 배경 제거] 투명하게 정돈된 조원 이름 & PPT 버튼 구역 */}
       <section style={{ maxWidth: '800px', margin: '0 auto 40px auto', padding: '0 20px', width: '100%' }}>
         <div className="team-panel" style={{ padding: '10px 24px', background: 'transparent', borderRadius: 0, border: 'none', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px' }}>
           
@@ -122,5 +123,5 @@ export default function Home() {
       </section>
 
     </main>
-  );
+  )
 }
